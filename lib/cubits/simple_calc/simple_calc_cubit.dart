@@ -1,3 +1,5 @@
+import 'dart:ffi';
+import 'dart:convert';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
@@ -15,7 +17,10 @@ class SimpleCalcCubit extends Cubit<SimpleCalcState> {
     Map<String, num> breakdown = {};
 
     // TODO - Calculate your breakdown here, put the results in a map, with the validDenominations as the key, and the result as the value
-
+    var Counter = Array(9);
+    for (var i = 0; i < validDenominations.length; i++) {
+      if (totalChange >= validDenominations[i]) {}
+    }
     emit(SimpleCalcCalculated(breakdown, totalChange));
   }
 
