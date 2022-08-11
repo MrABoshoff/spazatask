@@ -1,6 +1,6 @@
 # spazatask
 
-A new Flutter project.
+Internship app
 
 ## Getting Started
 
