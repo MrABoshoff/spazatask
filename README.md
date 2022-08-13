@@ -1,8 +1,6 @@
 # spazatask
 
-Internship app
-
-## Getting Started
+Adam Boshoff's Internship app
 
 This project is a starting point for a Flutter application.
 
