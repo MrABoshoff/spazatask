@@ -17,15 +17,14 @@ class SimpleCalcCubit extends Cubit<SimpleCalcState> {
     Map<String, num> breakdown = {};
 
     // TODO - Calculate your breakdown here, put the results in a map, with the validDenominations as the key, and the result as the value
-    var Counter = Array(9);
 
-    for (var i = 0; i < validDenominations.length; i++) { //Getting the length of the array to pass through every element
+      validDenominations.forEach((element) // Iterating through each of the denominations
+      {
+      num Count = (totalChange / element).floor(); //Getting the amount of times each of the denominations can be used in the change
+      totalChange = totalChange % element; 
 
-      if (totalChange >= validDenominations[i]) { //Checking to see if the amount of change is larger than elements in the array
+    });
 
-      }
-
-    }
     emit(SimpleCalcCalculated(breakdown, totalChange));
   }
 
