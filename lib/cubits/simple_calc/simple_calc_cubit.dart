@@ -19,7 +19,7 @@ class SimpleCalcCubit extends Cubit<SimpleCalcState> {
 
     // TODO - Calculate your breakdown here, put the results in a map, with the validDenominations as the key, and the result as the value
     num Count;
-    if (tender > cost && (cost == double || cost == num) && (tender == double || tender == num)) {
+    if ((tender > cost) && !(cost == String) && !(tender == String)) {
       validDenominations.forEach(// Iterating through each of the denominations.
           (element) {
         Count = (totalChange / element).floor(); // Getting the amount of times each of the denominations can be used in the change. I am usign floor to get the nearset lower integer.
