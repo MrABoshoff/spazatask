@@ -17,13 +17,22 @@ class SimpleCalcCubit extends Cubit<SimpleCalcState> {
     Map<String, num> breakdown = {};
 
     // TODO - Calculate your breakdown here, put the results in a map, with the validDenominations as the key, and the result as the value
+    if (tender < cost) {
+      totalChange = cost - tender;
+      
+    } else {
+      validDenominations
+          .forEach((element) // Iterating through each of the denominations
+              {
+        num Count = (totalChange / element)
+            .floor(); //Getting the amount of times each of the denominations can be used in the change
+        totalChange = totalChange % element;
 
-      validDenominations.forEach((element) // Iterating through each of the denominations
-      {
-      num Count = (totalChange / element).floor(); //Getting the amount of times each of the denominations can be used in the change
-      totalChange = totalChange % element; 
-
-    });
+        if (Count != 0) {
+          breakdown = {validDenominations.toString(): Count};
+        }
+      });
+    }
 
     emit(SimpleCalcCalculated(breakdown, totalChange));
   }
