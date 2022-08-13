@@ -19,10 +19,8 @@ class SimpleCalcCubit extends Cubit<SimpleCalcState> {
 
     // TODO - Calculate your breakdown here, put the results in a map, with the validDenominations as the key, and the result as the value
     num Count;
-    if (cost > tender) {
-      num AmountDue = 0;
-      totalChange =
-          num.parse('You do not have enough to pay, please insert R$AmountDue');
+    if ((cost > tender) | (cost != num) | (tender != num)) {
+      totalChange = num.parse("The rand note value is incorrect");
     } else if (tender > cost) {
       validDenominations.forEach(// Iterating through each of the denominations.
           (element) {
@@ -37,7 +35,6 @@ class SimpleCalcCubit extends Cubit<SimpleCalcState> {
       });
     }
     ;
-
     totalChange = tender - cost;
 
     emit(SimpleCalcCalculated(breakdown, totalChange));
