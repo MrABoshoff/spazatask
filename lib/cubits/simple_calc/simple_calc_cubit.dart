@@ -19,13 +19,10 @@ class SimpleCalcCubit extends Cubit<SimpleCalcState> {
 
     // TODO - Calculate your breakdown here, put the results in a map, with the validDenominations as the key, and the result as the value
     num Count;
-    if ((cost > tender) | (cost != num) | (tender != num)) {
-      totalChange = num.parse("The rand note value is incorrect");
-    } else if (tender > cost) {
+    if (tender > cost && (cost == double || cost == num) && (tender == double || tender == num)) {
       validDenominations.forEach(// Iterating through each of the denominations.
           (element) {
-        Count = (totalChange / element)
-            .floor(); // Getting the amount of times each of the denominations can be used in the change. I am usign floor to get the nearset lower integer.
+        Count = (totalChange / element).floor(); // Getting the amount of times each of the denominations can be used in the change. I am usign floor to get the nearset lower integer.
         totalChange = totalChange % element;
 
         if (Count > 0) {
@@ -33,6 +30,9 @@ class SimpleCalcCubit extends Cubit<SimpleCalcState> {
               Count; // Adding each element with a count larger than 0 into the breakdown to be printed.
         }
       });
+
+    }else if (cost > tender){// Negative flow to see if the values that are being entered are correct
+       totalChange = num.parse("The rand note value is incorrect"); //Trying to ovveride the totalChange to display the error message
     }
     ;
     totalChange = tender - cost;
