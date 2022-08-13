@@ -1,5 +1,6 @@
 import 'dart:ffi';
 import 'dart:convert';
+import 'dart:math';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
@@ -18,7 +19,7 @@ class SimpleCalcCubit extends Cubit<SimpleCalcState> {
 
     // TODO - Calculate your breakdown here, put the results in a map, with the validDenominations as the key, and the result as the value
     num Count;
-
+    if (cost > tender) {}
     validDenominations.forEach(// Iterating through each of the denominations.
         (element) {
       Count = (totalChange / element)
@@ -30,6 +31,8 @@ class SimpleCalcCubit extends Cubit<SimpleCalcState> {
             Count; // Adding each element with a count larger than 0 into the breakdown to be printed.
       }
     });
+
+    totalChange = tender - cost;
 
     emit(SimpleCalcCalculated(breakdown, totalChange));
   }
