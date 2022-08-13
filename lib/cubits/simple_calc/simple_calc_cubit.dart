@@ -19,22 +19,20 @@ class SimpleCalcCubit extends Cubit<SimpleCalcState> {
 
     // TODO - Calculate your breakdown here, put the results in a map, with the validDenominations as the key, and the result as the value
     num Count;
-    if ((tender > cost) && !(cost == String) && !(tender == String)) {
+    if (tender > cost && cost != String && tender != String) //Checking the following conditions to see if the Values that are entered are not strings
+    {
       validDenominations.forEach(// Iterating through each of the denominations.
           (element) {
         Count = (totalChange / element).floor(); // Getting the amount of times each of the denominations can be used in the change. I am usign floor to get the nearset lower integer.
         totalChange = totalChange % element;
 
         if (Count > 0) {
-          breakdown['$element'] =
-              Count; // Adding each element with a count larger than 0 into the breakdown to be printed.
+          breakdown['$element'] =  Count; // Adding each element with a count larger than 0 into the breakdown to be printed.
         }
       });
-
-    }else if (cost > tender){// Negative flow to see if the values that are being entered are correct
-       totalChange = num.parse("The rand note value is incorrect"); //Trying to ovveride the totalChange to display the error message
-    }
-    ;
+    } else {
+      breakdown['error'] = num.parse("The rand note value is incorrect"); //Trying to display the error message in the breakdown.
+    };
     totalChange = tender - cost;
 
     emit(SimpleCalcCalculated(breakdown, totalChange));
