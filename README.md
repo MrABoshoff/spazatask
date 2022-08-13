@@ -1,4 +1,4 @@
-# spazatask
+# Spaza Internship task
 
 Adam Boshoff's Internship app
 
