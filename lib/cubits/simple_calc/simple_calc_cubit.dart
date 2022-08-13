@@ -18,13 +18,16 @@ class SimpleCalcCubit extends Cubit<SimpleCalcState> {
 
     // TODO - Calculate your breakdown here, put the results in a map, with the validDenominations as the key, and the result as the value
     num Count;
-    validDenominations.forEach(// Iterating through each of the denominations
+
+    validDenominations.forEach(// Iterating through each of the denominations.
         (element) {
       Count = (totalChange / element)
-          .floor(); //Getting the amount of times each of the denominations can be used in the change
+          .floor(); // Getting the amount of times each of the denominations can be used in the change.
       totalChange = totalChange % element;
+
       if (Count > 0) {
-        breakdown['$element'] = Count;
+        breakdown['$element'] =
+            Count; // Adding each element with a count larger than 0 into the breakdown to be printed.
       }
     });
 
